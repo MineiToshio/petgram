@@ -15,27 +15,29 @@ export const App = () => {
     <div>
       <GlobalStyle />
       <Logo />
-      <Router>
-        <Home path='/' />
-        <Home path='/pet/:categoryId' />
-        <Detail path='/detail/:detailId' />
-      </Router>
-      <Context.Consumer>
-        {
-          ({ isAuth }) =>
-            isAuth ? (
-              <Router>
-                <Favs path='/favs' />
-                <User path='/user' />
-              </Router>
-            ) : (
-              <Router>
-                <NotRegisteredUser path='/favs' />
-                <NotRegisteredUser path='/user' />
-              </Router>
-            )
-        }
-      </Context.Consumer>
+      <div style={{ padding: '0 10px' }}>
+        <Router>
+          <Home path='/' />
+          <Home path='/pet/:categoryId' />
+          <Detail path='/detail/:detailId' />
+        </Router>
+        <Context.Consumer>
+          {
+            ({ isAuth }) =>
+              isAuth ? (
+                <Router>
+                  <Favs path='/favs' />
+                  <User path='/user' />
+                </Router>
+              ) : (
+                <Router>
+                  <NotRegisteredUser path='/favs' />
+                  <NotRegisteredUser path='/user' />
+                </Router>
+              )
+          }
+        </Context.Consumer>
+      </div>
       <Navbar />
     </div>
   )

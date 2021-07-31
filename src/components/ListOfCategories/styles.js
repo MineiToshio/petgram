@@ -1,9 +1,25 @@
-import styled, {css} from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const List = styled.ul`
   display: flex;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
   width: 100%;
+  padding: 0 0 15px 0;
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #cccccc;
+  }
+  &::-webkit-scrollbar {
+    height: 8px;
+    background-color: #cccccc;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #828282;
+  }
   ${props => props.fixed && css`
     background: #fff;
     border-radius: 60px;
