@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
 import { Div, Title, Subtitle } from './styles'
 
@@ -15,3 +16,9 @@ export const Layout = ({ children, title, subtitle }) => (
     </Div>
   </>
 )
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string,
+  subtitle: PropTypes.string
+}
