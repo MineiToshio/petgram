@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { ListOfCategories } from '../components/ListOfCategories'
 import { ListOfPhotoCards } from '../container/ListOfPhotoCards'
 
-export const Home = ({ categoryId }) => (
+const HomePage = ({ categoryId }) => (
   <>
     <Helmet>
       <title>Petgram - Your pet photo app</title>
@@ -13,3 +13,5 @@ export const Home = ({ categoryId }) => (
     <ListOfPhotoCards categoryId={categoryId} />
   </>
 )
+
+export const Home = React.memo(HomePage, (prevProps, props) => prevProps.categoryId === props.categoryId)
